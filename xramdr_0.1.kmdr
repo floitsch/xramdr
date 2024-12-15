@@ -1,0 +1,445 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>xramdr</class>
+<widget class="Dialog">
+    <property name="name">
+        <cstring>xramdr</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>552</width>
+            <height>429</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Xramdr</string>
+    </property>
+    <property name="associations" stdset="0">
+        <stringlist>
+            <string></string>
+            <string>#!kommander
+screens = exec("xrandr | awk '/connected/ {print $1}'")
+Avail_Screen1.insertItems(screens, 0)
+Avail_Screen2.insertItems(screens, 0)
+</string>
+            <string></string>
+        </stringlist>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="ScriptObject" row="0" column="0">
+            <property name="name">
+                <cstring>qt_dead_widget_ScriptObject1</cstring>
+            </property>
+        </widget>
+        <widget class="GroupBox" row="0" column="1" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>GroupBox1_2</cstring>
+            </property>
+            <property name="title">
+                <string>Screen 2</string>
+            </property>
+            <widget class="CheckBox">
+                <property name="name">
+                    <cstring>Activate_Screen2</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>30</y>
+                        <width>150</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>&amp;Activate</string>
+                </property>
+                <property name="checked">
+                    <bool>true</bool>
+                </property>
+                <property name="associations" stdset="0">
+                    <stringlist>
+                        <string></string>
+                        <string></string>
+                        <string></string>
+                    </stringlist>
+                </property>
+            </widget>
+            <widget class="GroupBox">
+                <property name="name">
+                    <cstring>group_screen2</cstring>
+                </property>
+                <property name="enabled">
+                    <bool>true</bool>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>50</y>
+                        <width>280</width>
+                        <height>280</height>
+                    </rect>
+                </property>
+                <property name="lineWidth">
+                    <number>0</number>
+                </property>
+                <property name="title">
+                    <string></string>
+                </property>
+                <widget class="ComboBox">
+                    <property name="name">
+                        <cstring>Avail_Screen2</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>true</bool>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>160</width>
+                            <height>26</height>
+                        </rect>
+                    </property>
+                    <property name="populationText">
+                        <string></string>
+                    </property>
+                    <property name="associations" stdset="0">
+                        <stringlist>
+                            <string>@Avail_Screen2.text</string>
+                        </stringlist>
+                    </property>
+                </widget>
+                <widget class="ButtonGroup">
+                    <property name="name">
+                        <cstring>ButtonGroup3</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>170</x>
+                            <y>60</y>
+                            <width>112</width>
+                            <height>166</height>
+                        </rect>
+                    </property>
+                    <property name="lineWidth">
+                        <number>0</number>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>11</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="RadioButton" row="0" column="0">
+                            <property name="name">
+                                <cstring>mirror</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Mirror</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="associations" stdset="0">
+                                <stringlist>
+                                    <string>@null</string>
+                                    <string>--same-as @Avail_Screen1</string>
+                                </stringlist>
+                            </property>
+                        </widget>
+                        <widget class="RadioButton" row="1" column="0">
+                            <property name="name">
+                                <cstring>above</cstring>
+                            </property>
+                            <property name="text">
+                                <string>A&amp;bove</string>
+                            </property>
+                            <property name="associations" stdset="0">
+                                <stringlist>
+                                    <string>@null</string>
+                                    <string>--above @Avail_Screen1</string>
+                                </stringlist>
+                            </property>
+                        </widget>
+                        <widget class="RadioButton" row="2" column="0">
+                            <property name="name">
+                                <cstring>below</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Bel&amp;ow</string>
+                            </property>
+                            <property name="associations" stdset="0">
+                                <stringlist>
+                                    <string>@null</string>
+                                    <string>--below @Avail_Screen1</string>
+                                </stringlist>
+                            </property>
+                        </widget>
+                        <widget class="RadioButton" row="3" column="0">
+                            <property name="name">
+                                <cstring>left_of</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Left-Of</string>
+                            </property>
+                            <property name="associations" stdset="0">
+                                <stringlist>
+                                    <string>@null</string>
+                                    <string>--left-of @Avail_Screen1</string>
+                                </stringlist>
+                            </property>
+                        </widget>
+                        <widget class="RadioButton" row="4" column="0">
+                            <property name="name">
+                                <cstring>right_of</cstring>
+                            </property>
+                            <property name="text">
+                                <string>R&amp;ight-Of</string>
+                            </property>
+                            <property name="associations" stdset="0">
+                                <stringlist>
+                                    <string>@null</string>
+                                    <string>--right-of @Avail_Screen1</string>
+                                </stringlist>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="ListBox">
+                    <property name="name">
+                        <cstring>Resolutions_Screen2</cstring>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>50</y>
+                            <width>160</width>
+                            <height>220</height>
+                        </rect>
+                    </property>
+                    <property name="populationText">
+                        <string>@exec("xrandr | awk '/connected/ { screen = $1}
+/^[ ]*[0-9]+x[0-9]+/ { if (screen == "@Avail_Screen2") print $1}'")</string>
+                    </property>
+                    <property name="associations" stdset="0">
+                        <stringlist>
+                            <string>@Resolutions_Screen2.selection</string>
+                        </stringlist>
+                    </property>
+                </widget>
+            </widget>
+        </widget>
+        <widget class="GroupBox" row="0" column="0">
+            <property name="name">
+                <cstring>GroupBox1</cstring>
+            </property>
+            <property name="title">
+                <string>Screen 1</string>
+            </property>
+            <widget class="ListBox">
+                <property name="name">
+                    <cstring>Resolutions_Screen1</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>100</y>
+                        <width>160</width>
+                        <height>220</height>
+                    </rect>
+                </property>
+                <property name="populationText">
+                    <string>@exec("xrandr | awk '/connected/ { screen = $1}
+/^[ ]*[0-9]+x[0-9]+/ { if (screen == "@Avail_Screen1") print $1}'")</string>
+                </property>
+                <property name="associations" stdset="0">
+                    <stringlist>
+                        <string>@Resolutions_Screen1.selection</string>
+                    </stringlist>
+                </property>
+            </widget>
+            <widget class="ComboBox">
+                <property name="name">
+                    <cstring>Avail_Screen1</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>20</x>
+                        <y>60</y>
+                        <width>160</width>
+                        <height>26</height>
+                    </rect>
+                </property>
+                <property name="populationText">
+                    <string></string>
+                </property>
+                <property name="associations" stdset="0">
+                    <stringlist>
+                        <string>@Avail_Screen1.text</string>
+                    </stringlist>
+                </property>
+            </widget>
+        </widget>
+        <widget class="ExecButton" row="2" column="2">
+            <property name="name">
+                <cstring>apply</cstring>
+            </property>
+            <property name="text">
+                <string>Appl&amp;y</string>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string>@exec(@text_cmd)</string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="LineEdit" row="1" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>text_cmd</cstring>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string>@text_cmd.text</string>
+                </stringlist>
+            </property>
+        </widget>
+        <widget class="ScriptObject" row="2" column="0">
+            <property name="name">
+                <cstring>generate</cstring>
+            </property>
+            <property name="associations" stdset="0">
+                <stringlist>
+                    <string>#!kommander
+screen1 = Avail_Screen1.text
+error = false
+cmd = "xrandr"
+resolution1 = Resolutions_Screen1.selection()
+if str_isEmpty(resolution1) then error = true endif
+cmd = cmd + " --output " + screen1
+cmd = cmd + " --mode " + resolution1
+if Activate_Screen2.checked then
+  screen2 = Avail_Screen2.text
+  if (screen1 == screen2) then error = true endif
+  resolution2 = Resolutions_Screen2.selection()
+  if str_isEmpty(resolution2) then error = true endif
+  cmd = cmd + " --output " + screen2
+  cmd = cmd + " --mode " + resolution2
+  cmd = cmd + " "
+  if mirror.checked then cmd = cmd + "--same-as" endif
+  if above.checked then cmd = cmd + "--above" endif
+  if below.checked then cmd = cmd + "--below" endif
+  if left_of.checked then cmd = cmd + "--left-of" endif
+  if right_of.checked then cmd = cmd + "--right-of" endif
+  cmd = cmd + " " + screen1
+else
+  screen2 = screen1
+endif
+for i = 0 to Avail_Screen1.count - 1 step 1 do
+  output = Avail_Screen1.item(i)
+  if output == screen1 then continue endif
+  if output == screen2 then continue endif
+  cmd = cmd + " --output " + output + " --off"
+end
+if error then
+  text_cmd.setText("")
+else
+  text_cmd.setText(cmd)
+endif</string>
+                </stringlist>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>Avail_Screen2</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>Resolutions_Screen2</receiver>
+        <slot>populate()</slot>
+    </connection>
+    <connection>
+        <sender>right_of</sender>
+        <signal>clicked()</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>Activate_Screen2</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>Resolutions_Screen2</sender>
+        <signal>currentChanged(QListBoxItem*)</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>below</sender>
+        <signal>clicked()</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>above</sender>
+        <signal>clicked()</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>Resolutions_Screen1</sender>
+        <signal>currentChanged(QListBoxItem*)</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>left_of</sender>
+        <signal>clicked()</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>mirror</sender>
+        <signal>clicked()</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+    <connection>
+        <sender>Activate_Screen2</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>group_screen2</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>Avail_Screen1</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>Resolutions_Screen1</receiver>
+        <slot>populate()</slot>
+    </connection>
+    <connection>
+        <sender>Avail_Screen1</sender>
+        <signal>activated(int)</signal>
+        <receiver>generate</receiver>
+        <slot>execute()</slot>
+    </connection>
+</connections>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
